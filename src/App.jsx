@@ -29,7 +29,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path : "/react_expense_app_deploy",
+      path : "/",
       element: <Main/>,
       errorElement: <Error/>,
       children: [
