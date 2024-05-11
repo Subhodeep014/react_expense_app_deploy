@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Outlet, redirect} from 'react-router-dom'
+import { Outlet, redirect, useNavigate} from 'react-router-dom'
 import {Form, NavLink} from "react-router-dom"
 // library imports
 import {TrashIcon, ArrowLeftStartOnRectangleIcon} from '@heroicons/react/24/solid'
@@ -8,21 +8,27 @@ import logomark from "../assets/logomark.svg"
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import GetUserHook from "../hooks/GetUserHook";
+import { toast } from "react-toastify";
 
-const handleLogout = async (event) => {
-    event.preventDefault();
-    
-    if (confirm("Delete user and all data?")) {
-        try {
-            const response = await axios.get('/logout');
-            window.location.href = '/';
-        } catch (error) {
-            console.error('Logout error:', error);
-        }
-    }
-};
+
 const Navbar = ()=>{
     const { user} = useContext(UserContext);
+    const navigate  = useNavigate();
+    const handleLogout = async (event) => {
+        event.preventDefault();
+        
+        if (confirm("Delete user and all data?")) {
+            try {
+                const {response} = await axios.get('/logout');
+                navigate("/");
+                toast.success("Signed out!")
+                window.location.reload(true);
+            } catch (error) {
+                toast.error(response.error)
+                console.error('Logout error:', error);
+            }
+        }
+    };
     return (
         <nav>
             <NavLink to="/" aria-label="Go to Home">

@@ -21,7 +21,7 @@ import ExpensesPage from './pages/ExpensesPage';
 
 
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'https://expenseapi.netlify.app/api'
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -31,23 +31,27 @@ function App() {
     {
       path : "/",
       element: <Main/>,
-      // errorElement: <Error/>,
+      errorElement: <Error/>,
       children: [
         {
           index: true,
           element:  <Dashboard/>,
+          errorElement: <Error/>,
         },
         {
           path:"/signup",
-          element: <SignUpForm/>
+          element: <SignUpForm/>,
+          errorElement: <Error/>,
         },
         {
           path: "budget/:id",
-          element: <BudgetPage/>
+          element: <BudgetPage/>,
+          errorElement: <Error/>,
         },
         {
           path: "expenses",
           element: <ExpensesPage />,
+          errorElement: <Error/>,
         },
 
       ]
