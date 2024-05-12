@@ -40,12 +40,12 @@ const AddBudgetForm = ()=>{
     }
   
     const handleBudgetSubmit = async (e) => {
-      console.log("submitting budget..");
+      // console.log("submitting budget..");
       e.preventDefault();
       const { budgetName, budgetAmount } = budget;
         // Generate the color
       const budgetColor = generateBudgetColor();
-      console.log("Generated color:", budgetColor);
+      // console.log("Generated color:", budgetColor);
       try {
         const { data } = await axios.post("/addbudget", {
           budgetName,

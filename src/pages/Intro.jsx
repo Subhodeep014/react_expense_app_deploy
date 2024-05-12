@@ -101,6 +101,7 @@ const Intro = () =>{
               </div>
               </form>
               {/* Move the Link outside the form */}
+              {/* /react_expense_app_deploy/signup */}
               <Link to="/signup" className="btn btn--dark">
                   <span>Create Account</span>
                   <UserPlusIcon width={20} />

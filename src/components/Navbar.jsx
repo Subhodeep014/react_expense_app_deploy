@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Outlet, redirect, useNavigate} from 'react-router-dom'
+import { Link, Outlet, redirect, useNavigate} from 'react-router-dom'
 import {Form, NavLink} from "react-router-dom"
 // library imports
 import {TrashIcon, ArrowLeftStartOnRectangleIcon} from '@heroicons/react/24/solid'
@@ -31,10 +31,10 @@ const Navbar = ()=>{
     };
     return (
         <nav>
-            <NavLink to="/" aria-label="Go to Home">
+            <Link to="/react_expense_app_deploy" aria-label="Go to Home">
                 <img src={logomark} height={30} alt="" />
                 <span>HomeBudget</span>
-            </NavLink>
+            </Link>
             {
                 user.name && (
                     <Form

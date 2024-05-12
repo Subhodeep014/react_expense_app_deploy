@@ -39,13 +39,13 @@ const ExpenseItem = ({expense, showBudget})=>{
     const deleteExpenseFromTable = async(e)=>{
         e.preventDefault(); 
         try {
-            console.log("deleting expense id: ",expense._id)
+            // console.log("deleting expense id: ",expense._id)
             const resp = await axios.delete( `/expensedelete/${expense._id}`, {
                data:{
                 email:user.email
                }
             } )
-            console.log(`Fetched Expense -->`, resp.data)
+            // console.log(`Fetched Expense -->`, resp.data)
             updateExpenses(resp.data);
             toast.success("Expense deleted successfully!")
 

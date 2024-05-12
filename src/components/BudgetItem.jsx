@@ -19,10 +19,10 @@ const BudgetItem = ({budget, showDelete = false})=>{
     const { user, expenses} = useContext(UserContext);
     const {_id,name,amount, color} = budget;
     useEffect(()=>{
-        console.log('expense added, recalculating spent amt')
+        // console.log('expense added, recalculating spent amt')
         const fetchSpent = async()=>{
             const spentAmount = await calculateSpentByBudget(_id, user.email);
-            console.log('spent amount calc-->',spentAmount)
+            // console.log('spent amount calc-->',spentAmount)
             setSpent(spentAmount)
         }
         fetchSpent();
@@ -35,9 +35,9 @@ const BudgetItem = ({budget, showDelete = false})=>{
                 const response = await axios.delete(`/deletebudget/${budget._id}`)
                 
 
-                    console.log(response)
+                    // console.log(response)
                     toast.success("Succesfully deleted budget")
-                    navigate('/')
+                    navigate('/react_expense_app_deploy')
                 } catch (error) {
                 toast.error("Budget deletion failed!")
             }

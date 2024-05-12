@@ -21,7 +21,7 @@ const ExpensesPage = ()=>{
         const getExpenseData = async () => {
           try {
             const data = await fetchData("getexpenses", user.email);
-            console.log(data);
+            // console.log(data);
             setExpenses(data);
           } catch (error) {
             console.log(error);
@@ -33,7 +33,7 @@ const ExpensesPage = ()=>{
         }
       }, [user.email, expenses]);
     
-      console.log(expenses_local);
+      // console.log(expenses_local);
 
     
     return(

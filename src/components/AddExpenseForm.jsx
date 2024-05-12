@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const AddExpenseForm = ({budgetss})=>{
-  console.log("budgetss",budgetss)
+  // console.log("budgetss",budgetss)
     const fetcher = useFetcher();
     const isSubmitting = fetcher.state==="submitting";
     const formRef = useRef()
@@ -21,16 +21,14 @@ const AddExpenseForm = ({budgetss})=>{
         
     });
 
-    useEffect(()=>{
-        console.log(expense.budgetId)
-    },[expense.budgetId])
+
 
     const hasBudgets = budgetss.length > 0 && budgetss[0].length > 0;
 
     const handleExpenseSubmit = async(e)=>{
         e.preventDefault()
         const {expenseName, expenseAmount, budgetId} = expense;
-        console.log(expenseName, expenseAmount, budgetId)
+        // console.log(expenseName, expenseAmount, budgetId)
         try {
             const {data} = await axios.post("/addexpense",{
                 expenseName,
@@ -38,7 +36,7 @@ const AddExpenseForm = ({budgetss})=>{
                 budgetId,
                 email: user.email,
             })
-            console.log(data)
+            // console.log(data)
             if(data.error){
                 toast.error(data.error);
             }else{
@@ -52,7 +50,7 @@ const AddExpenseForm = ({budgetss})=>{
               
               formRef.current.reset();
               focusRef.current.focus();
-              console.log("expense submitting")
+              // console.log("expense submitting")
             }
         } catch (error) {
             console.error(error);

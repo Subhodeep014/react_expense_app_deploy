@@ -13,7 +13,7 @@ export async function fetchData(dataName, email) {
 
 export const calculateSpentByBudget = async (budgetId, email) => {
   const expenses = await fetchData("getexpenses", email) ?? [];
-  console.log("expenses-->", expenses)
+  // console.log("expenses-->", expenses)
   const budgetSpent = expenses.reduce((acc, expense) => {
     // check if the expense.id==budget.Id  I have passed in
     if ((expense.budgetid !== budgetId)) return acc;

@@ -19,8 +19,8 @@ const BudgetPage = () => {
     const { id } = useParams(); 
     const [userExpense, setUserExpense] = useState([])
 
-    console.log("Budgets:",budgets)
-    console.log("expensess",expenses)
+    // console.log("Budgets:",budgets)
+    // console.log("expensess",expenses)
     useEffect(()=>{
         const fetchMatchingBudget = async()=>{
             try {
@@ -41,7 +41,7 @@ const BudgetPage = () => {
         fetchMatchingBudget();
         
         
-        console.log("Budget",matchingBudget)
+        // console.log("Budget",matchingBudget)
     },[id,matchingBudget.length])
     return (
         <div className="grid-lg" style={{ "--accent": budgetData.color }}>

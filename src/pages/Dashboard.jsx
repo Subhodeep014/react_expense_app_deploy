@@ -24,7 +24,7 @@ const Dashboard = () => {
         // console.log("budgets -->",userBudgets)
         
         updateExpenses([userExpenses])
-        console.log("sfdsfd",userExpenses)
+        // console.log("sfdsfd",userExpenses)
 
       } catch (error) {
         console.error("Error fetching user budgets:", error);
@@ -32,9 +32,9 @@ const Dashboard = () => {
     };
  
     fetchUserExpenses();
-    console.log("expenses on load",expenses)
+    // console.log("expenses on load",expenses)
 }, [expenses.length, user.email]);
-console.log(budgets)
+// console.log(budgets)
   return (
     <div>
       {user.name ? (
